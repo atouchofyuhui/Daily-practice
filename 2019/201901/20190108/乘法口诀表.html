@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 乘法口诀表
+        document.write("<table border=1 cellpadding=0 cellspacing=0>");
+        for (var j = 1; j < 9; j++) {
+            document.write("<tr>");
+            for (var i = 1; i <= j; i++) {
+                document.write("<td>");
+                document.write(i + "*" + j + "=" + i * j);
+                document.write("</td>");
+            }
+            document.write("<br />")
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+
+</html>

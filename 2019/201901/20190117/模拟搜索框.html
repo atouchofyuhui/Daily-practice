@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 450px;
+            margin: 100px auto;
+            /* display: flex; */
+        }
+        #tet{
+            width: 350px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <p>请输入以“小”或“吴”或“王”开头的文字</p>
+        <input type="text" id="tet" value="请输入以“小”或“吴”或“王”开头的文字">
+        <input type="button" value="百度一下" id="btn">
+    </div>
+    <script>
+        var names = ["小白", "小米", "小清新", "吴京", "吴彦祖", "吴镇宇", "王胜", "王胜是傻子", "王胜竟然喜欢吃便便", "王胜是爱玩屎的阿拉蕾", "王胜还欠窦旭8888欧",
+            "王胜到底有多黑"
+        ];
+
+        function my$(id) {
+            return document.getElementById(id);
+        }
+        my$("tet").onkeyup = function () {
+            if (my$("dv")) {
+                my$("box").removeChild(my$("dv"));
+            }
+            //输入进去的字符值给变量text
+            var text = this.value;
+            //定义一个空数组存放数据库中所有第一个字和你输入的数据
+            var tempArr = [];
+            //遍历原数组中的数据
+            for (var i = 0; i < names.length; i++) {
+                //判断是否是最开始出现的
+                if (names[i].indexOf(text) == 0) {
+                    tempArr.push(names[i]); //追加
+                }
+            }
+            //此时判断搜索框中有没有数据，或者临时数组有没有数据
+            if (this.value.length == 0 || tempArr.length == 0) {
+                //都没有数据进入这里，判断搜索框下有没有大框
+                if (my$("dv")) {
+                    //有搜索框下面的大框了进入这里，移除大框框
+                    my$("box").removeChild(my$("dv"))
+                }
+                //后面的代码不执行
+                return;
+            }
+            //创建一个div
+            var dvobj = document.createElement("div");
+            //在box后追加这个div
+            my$("box").appendChild(dvobj);
+            //设置这个div的id为dv
+            dvobj.id = "dv"
+            //设置这个div的宽为350
+            dvobj.style.width = "350px";
+            //设置这个div的边框为1 灰色
+            dvobj.style.border = "1px solid#ccc";
+            //遍历临时数组
+            for (var j = 0; j < tempArr.length; j++) {
+                //每循环一次创建一个标签p
+                var pobj = document.createElement("p");
+                //在div里追加p标签，也就是把p标签放在div中
+                dvobj.appendChild(pobj);
+                //把临时数组中的数据依次存放到p标签中
+                pobj.innerText = tempArr[j];
+                pobj.style.cursor = "pointer";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.asy = function () {
+                console.log("我是" + this.name + "今年" + this.age + "岁")
+            }
+
+        }
+        var per1 = new Person("小明", 20);
+        console.log(per1.name);
+        console.log(per1.age);
+        per1.asy();
+        var per2 = new Person("小芳", 30);
+        console.log(per2.name);
+        console.log(per2.age);
+        per2.asy();
+    </script>
+</body>
+
+</html>

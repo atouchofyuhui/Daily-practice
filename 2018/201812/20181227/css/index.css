@@ -1,0 +1,269 @@
+/* ----------reset css--------------- */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+body {
+    font-size: 14px;
+    background-color: #f6f5f5;
+}
+
+/* -------------base css ----------- */
+
+/* header start */
+.header .title {
+    height: 125px;
+    background: url(../images/head.jpg) no-repeat center;
+    background-color: #033472;
+}
+
+/* 切换中英文  start */
+.header .title .change {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.change a {
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.change a:hover {
+    color: #f3b602;
+}
+
+.change a:first-child {
+    background-color: #5d8bcb;
+}
+
+.change a:first-child:hover {
+    background-color: #224e8b;
+}
+
+.change a:last-child {
+    background-color: #042b5d;
+}
+
+.change a:last-child:hover {
+    background-color: #03162f;
+}
+
+/* 切换中英文  end */
+
+.header .title .links {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    /* position: relative; */
+}
+
+.header .title .links .links-per {
+    display: flex;
+    margin-top: 5px;
+}
+
+.links-per a {
+    margin-right: 25px;
+    color: #d9e462;
+    position: relative;
+    font-size: 14px;
+}
+
+.links-per a::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-right: 1px solid #d9e462;
+    border-bottom: 1px solid #d9e462;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 6px;
+    right: -8px;
+}
+
+/* 搜索框 */
+.links input {
+    width: 175px;
+    height: 25px;
+    /* position: absolute;
+    top: 0;
+    right: 0; */
+}
+
+.links img {
+    /* position: absolute;
+    top: 0;
+    right: 0; */
+    cursor: pointer;
+}
+
+/* 导航栏 start */
+.header .nav {
+    /* height: 45px; */
+    background-color: #1a2d45;
+}
+
+.header .wrap .nav-main {
+    height: 45px;
+    background-color: #24282e;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+}
+
+.nav-main>li {
+    position: relative;
+}
+
+/* 先把li后面的ul标签不可见 */
+.nav-main li ul {
+    position: absolute;
+    background: #24282e;
+    visibility: hidden;
+}
+
+/* 当鼠标进入li标签的时候在把ul可见 */
+.nav-main>li:hover ul {
+    position: absolute;
+    left: -15px;
+    /* top: 35px; */
+    visibility: visible;
+    width: 90px;
+    z-index: 999;
+}
+
+.header .wrap .nav-main a {
+    color: #fff;
+    line-height: 30px;
+}
+
+.nav-main li ul li {
+    text-align: center;
+    border: 1px solid#595959;
+    /* width: 90px; */
+    border-right: none;
+}
+
+.nav-main li ul li:hover {
+    background-color: #000;
+    /* height: 26px; */
+    z-index: 999;
+    /* line-height: 26; */
+}
+
+/* nav end */
+
+/* header end */
+
+
+/* 轮播图 */
+.bannder .swiper-container .swiper-slide {
+    height: 380px;
+}
+
+.swiper-slide:first-child {
+    background: url(../images/banner-1.jpg)no-repeat center/cover;
+}
+
+.swiper-slide:nth-child(2) {
+    background: url(../images/banner-2.jpg)no-repeat center/cover;
+}
+
+.swiper-slide:nth-child(3) {
+    background: url(../images/banner-3.jpg)no-repeat center/cover;
+}
+
+.swiper-container .hide {
+    opacity: 0;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    transition: opacity .5s;
+}
+
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+    background-image: url(../images/left.png) !important;
+    left: 0 !important;
+}
+
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+    background-image: url(../images/right.png) !important;
+    right: 0 !important;
+}
+
+
+/* 主体部分 */
+.main {
+    display: flex;
+    height: 360px;
+    border-top: 5px solid#d9e9f3;
+    margin-top: 5px;
+    background-color: #fff;
+}
+
+.main-box {
+    flex: auto;
+    background-color: rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+    margin: 25px 15px;
+}
+
+/* tab栏 */
+
+.main-box #tabs {
+    display: flex;
+    background-color: #fff;
+}
+
+.main-box li a {
+    position: relative;
+    padding: 10px 10px;
+    border-bottom: 1px solid#333;
+    display: flex;
+    color: #444;
+}
+
+.main-box #content {
+    background: #fff;
+    padding: 20px;
+    height: 100px;
+    position: relative;
+}
+
+.main-box .item {
+    display: none;
+}
+
+.main-box .show {
+    display: block;
+}
+
+/* footer 部分 */
+.footer {
+    height: 135px;
+    background-color: #4b4b4b;
+}

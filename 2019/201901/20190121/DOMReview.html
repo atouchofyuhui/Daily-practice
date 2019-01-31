@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(192, 36, 101);
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="移动到400px" id="btn1">
+    <input type="button" value="移动到800px" id="btn2">
+    <input type="button" value="回到初始位置" id="btn3">
+    <div id="dv">
+
+    </div>
+    <script src="douxu.js"></script>
+    <script>
+        my$("btn1").onclick = function () {
+            animate(my$("dv"), 400);
+        };
+        my$("btn2").onclick = function () {
+            animate(my$("dv"), 800);
+        }
+        my$("btn3").onclick = function () {
+            animate(my$("dv"), 0);
+        }
+    </script>
+</body>
+
+</html>

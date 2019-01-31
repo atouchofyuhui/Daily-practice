@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function creatObject(name, age) {
+            var obj = new Object();
+
+            obj.name = name;
+            obj.age = age;
+            obj.say = function () {
+                console.log("你好，我是" + this.name + ",今年" + this.age + "岁")
+            }
+
+            return obj;
+        }
+        var per1 = creatObject("小明", 20);
+        var per2 = creatObject("小芳", 30);
+        per1.say();
+        per2.say();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var perCount = parseInt(prompt("请输入班级人数"));
+        var perSource = [];
+        var svg = 0;
+        for (var i = 0; i < perCount; i++) {
+            perSource[perSource.length] = parseInt(prompt("请输入第" + (i + 1) + "个人的成绩"));
+
+
+        }
+        console.log(perSource)
+        var sum = 0;
+        var max = perSource[0];
+        var min = perSource[0];
+
+        for (var j = 0; j < perSource.length; j++) {
+            sum += perSource[j];
+            svg = sum / perCount;
+            if (max < perSource[j]) {
+                max = perSource[j]
+            }
+            if (min > perSource[j]) {
+                min = perSource[j]
+            }
+        }
+        console.log(sum)
+        console.log(svg)
+        console.log(max)
+        console.log(min)
+    </script>
+</body>
+
+</html>

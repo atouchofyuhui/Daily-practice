@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+
+            width: 300px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hd {
+            height: 20px;
+            display: flex;
+            justify-content: space-between;
+            /* align-items: center; */
+
+        }
+
+        .hd .cls {
+            background-color: red;
+        }
+
+        span {
+            background: rgb(245, 241, 13);
+            cursor: pointer;
+
+        }
+
+        .bd {
+            height: 300px;
+            background: red;
+        }
+
+        .bd li {
+            display: none;
+        }
+
+        .bd li.cls {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="hd">
+            <span class="cls">英雄联盟</span>
+            <span>王者荣耀</span>
+            <span>刺激战场</span>
+
+            <span>QQ飞车</span>
+        </div>
+        <div class="bd">
+            <ul>
+                <li class="cls">LOL</li>
+                <li>简单的游戏</li>
+                <li>苟就完事了</li>
+                <li>相伴十年</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        //获取最外层div 
+        var boxobj = document.getElementById("box");
+        //获取第一个div
+        var hdobj = boxobj.getElementsByTagName("div")[0];
+        //获取第二个div
+        var bdobj = boxobj.getElementsByTagName("div")[1];
+
+        //获取第二个div里面所有的li标签 
+        var list = bdobj.getElementsByTagName("li");
+
+        //获取第一个div中所有的span标签
+        var spans = hdobj.getElementsByTagName("span");
+        //所有的span点击事件
+        for (var i = 0; i < spans.length; i++) {
+            //在点击每个span标签之前获取索引值
+            spans[i].setAttribute("index", i)
+            spans[i].onclick = function () {
+                //先隐藏所有的cls
+                for (var j = 0; j < spans.length; j++) {
+                    spans[j].removeAttribute("class");
+                }
+                //点击哪个显示哪个cls
+                this.className = "cls";
+
+                //得到当前点击时的索引值
+                var num = this.getAttribute("index");
+                for (var k = 0; k < list.length; k++) {
+                    //先隐藏所有的
+                    list[k].removeAttribute("class")
+                }
+                //点击当前的显示cls
+                list[num].className = "cls"
+            }
+
+        }
+    </script>
+</body>
+
+</html>

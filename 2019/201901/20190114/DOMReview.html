@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <style>
+            #dv{
+                width: 300px;
+                height: 200px;
+                background-color: hotpink;
+            }
+        </style> -->
+</head>
+
+<body class="cls">
+    <!-- <input type="button" value="按钮1" onclick="alert(123)"> -->
+    <!-- <input type="button" value="按钮2" onclick="alert('便签内写js')"> -->
+    <!-- <input type="button" value="按钮3" onclick="alert('标签内操作DOM')"> -->
+    <!-- <input type="button" value="按钮4" id="id1">
+    <script>
+        document.getElementById("id1").onclick = function () {
+            console.log(123)
+        }
+    </script> -->
+    <!-- <input type="button" id="id2" value='按钮5'>
+    <script>
+        document.getElementById('id2').onclick = function () {
+            alert(123)
+        }
+    </script> -->
+    <!-- <input type="button" value="announce6" id="id3">
+    <script>
+        document.getElementById("id3").onclick = function () {
+            console.log("点击我")
+        }
+    </script> -->
+
+    <!-- <input type="button" value="按钮7" id="id4">
+    <p id="p1"></p>
+    <script>
+        document.getElementById("id4").onclick = function () {
+            document.getElementById("p1").innerText = 123
+
+        }
+    </script> -->
+
+
+    <!-- <input type="button" value="按钮8" id="id5">
+    <img src="" alt="图片1" title="图片1" id="img1">
+    <script>
+        document.getElementById("id5").onclick = function () {
+            // document.getElementById("img1").src =
+            img1[0].title = "tupianyi"
+        }
+    </script> -->
+
+
+    <!-- <script>
+        //冒泡排序
+        var arr = [10, 5, 16, 6, 35, 12, 7];
+        //比较的轮数
+        for (var i = 0; i < arr.length - 1; i++) {
+            //每轮比较的次数
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                //每轮数调换位置
+                if (arr[j] < arr[j + 1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+    </script> -->
+
+    <!-- <input type="button" value="隐藏" id="btn1">
+    <div id="dv">
+
+    </div>
+    <script>
+        //
+        document.getElementById("btn1").onclick = function () {
+            //document.getElementById("dv").style.display = "none"
+            if (this.value == "隐藏") {
+                document.getElementById("dv").style.display = "none";
+                this.value = "显示"
+            } else if (this.value = "显示") {
+                document.getElementById("dv").style.display = "block";
+                this.value = "隐藏"
+            }
+
+        }
+    </script> -->
+
+
+
+
+    <!-- <input type="button" value="关灯" id="btn2">
+    <script>
+        function my$(id) {
+            return document.getElementById(id)
+        };
+        my$("btn2").onclick = function () {
+            // document.body.style.backgroundColor = "black"
+            if (document.body.className != "cls") {
+                document.body.style.backgroundColor = "black"
+                document.body.className = "cls"
+                this.value = "开灯"
+            } else if (document.body.className = "cls") {
+                document.body.style.backgroundColor = "#fff";
+                document.body.className = "";
+                this.value = "关灯";
+            }
+        }
+    </script> -->
+
+
+
+</body>
+
+</html>

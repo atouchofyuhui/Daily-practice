@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            padding: 7px;
+            border: 1px solid#ccc;
+        }
+
+        .inner {
+            width: 730px;
+            height: 454px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inner ul {
+            display: flex;
+            position: absolute;
+            /*脱离文档流*/
+        }
+
+        .square {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .square .current {
+            background-color: orangered;
+        }
+
+        span {
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            text-align: center;
+            background-color: #fff;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        /* 左右焦点 */
+        #focus {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -50px;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        #focus span {
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            font-size: 30px;
+            color: #fff;
+            line-height: 40px;
+            border: 1px solid #fff;
+            opacity: .3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="inner">
+            <ul>
+                <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/6.jpg" alt=""></a></li>
+            </ul>
+            <div class="square">
+                <span class="current">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+            </div>
+            <div id="focus"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+        </div>
+    </div>
+    <script src="douxu.js"></script>
+    <script>
+        var box = my$("box");
+        var inner = box.children[0];
+        var imgWidth = inner.offsetWidth;
+        var ulobj = inner.children[0];
+        var spanobjs = inner.children[1].children;
+        var focus = inner.children[2];
+        for (var i = 0; i < spanobjs.length; i++) {
+            spanobjs[i].setAttribute("index", i)
+            spanobjs[i].onmouseover = function () {
+                for (var j = 0; j < spanobjs.length; j++) {
+                    spanobjs[j].removeAttribute("class");
+                    this.className = "current";
+                    index = this.getAttribute("index");
+                    animate(ulobj, -index * imgWidth);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

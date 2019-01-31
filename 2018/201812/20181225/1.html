@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* All */
+        .nav {
+            margin-bottom: 48px;
+        }
+
+        .nav ul {
+            *zoom: 1;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background: #333;
+        }
+
+        .nav ul:before,
+        .nav ul:after {
+            content: "";
+            display: table;
+        }
+
+        .nav ul:after {
+            clear: both;
+        }
+
+        .nav ul>li {
+            float: left;
+            position: relative;
+        }
+
+        .nav a {
+            display: block;
+            padding: 10px 20px;
+            line-height: 1.2em;
+            color: #fff;
+            border-left: 1px solid #595959;
+        }
+
+        .nav a:hover {
+            text-decoration: none;
+            background: #595959;
+        }
+
+        .nav li ul {
+            background: #273754;
+        }
+
+        .nav li ul li {
+            width: 100px;
+        }
+
+        .nav li ul a {
+            border: none;
+        }
+
+        .nav li ul a:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Not Animated
+============================== */
+        .nav1 ul>li:hover ul {
+            left: 0;
+        }
+
+        .nav1 li ul {
+            position: absolute;
+            left: 9999em;
+            top: 36px;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav nav1">
+        <ul>
+
+            <li>
+                <a href="">nav item</a>
+                <ul>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">nav item</a>
+                <ul>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">nav item</a>
+                <ul>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">nav item</a>
+                <ul>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                    <li><a href="">nav item</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</body>
+
+</html>

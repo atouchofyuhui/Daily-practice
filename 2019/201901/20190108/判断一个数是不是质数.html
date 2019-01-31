@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //判断一个数是不是质数
+        function inPrimeNumber(num) {
+            for (var i = 2; i < num; i++) {
+                if (num % i == 0) {
+                    // 当能进入到if循环体说明num%i==0成立，即能整除，不是质数，有因子，返回false
+                    return false;
+                }
+
+            }
+            return true;
+        }
+        var result = inPrimeNumber(parseInt(prompt("输入一个数")));
+        if (result) {
+            alert("这个数是质数")
+        } else {
+            alert("这个数不是质数")
+        }
+
+        inPrimeNumber()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+/* 
+        #div1 {
+            border: 1px solid#333;
+            width: 300px;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 100px auto;
+            border-right: none;
+        }
+
+        a {
+            background: #ccc;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            width: 100%;
+            border-right: 1px solid#333;
+            text-decoration: none;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- <div id="div1">
+        <a href="">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+    </div> -->
+
+    <!-- <script>
+        // var div1 = document.getElementsById("div1");
+        var a1 = document.getElementsByTagName("a")
+        for (var i = 0; i < a1.length; i++) {
+            a1[i].onclick = function () {
+                for (var j = 0; j < a1.length; j++) {
+                    a1[j].style.backgroundColor = "";
+                } //end for
+                this.style.backgroundColor = "red"
+            } //end functon
+        } //end for
+    </script> -->
+
+    <input type="button" value="我是123">
+    <input type="button" value="我是123">
+    <input type="button" value="我是123">
+    <input type="button" value="我是123">
+    <input type="button" value="我是123">
+    <input type="button" value="我是123">
+
+    <script>
+        //获取元素标签
+        var inputs = document.getElementsByTagName("input");
+        //循环遍历所有的标签
+        for (var i = 0; i < inputs.length; i++) {
+            //给每一标签按钮注册点击事件并添加事件函数
+            inputs[i].onclick = function () {
+                //先让每一个按钮标签的value值默认为我是123
+                for (var j = 0; j < inputs.length; j++) {
+                    inputs[j].value = "我是123";
+                }
+                //当前点击的按钮标签的value值变为321是我;
+                this.value = "321是我"
+            }
+        }
+    </script>
+
+</body>
+
+</html>

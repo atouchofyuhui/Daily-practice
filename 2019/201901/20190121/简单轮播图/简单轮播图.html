@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    .box {
+      width: 730px;
+      height: 454px;
+      margin: 100px auto;
+      padding: 5px;
+      border: 1px solid#ccc;
+    }
+
+    .inner {
+      width: 730px;
+      height: 454px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .inner ul {
+      width: 5110px;
+      display: flex;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .square {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+
+    .square .current {
+      background-color: orangered;
+    }
+
+    .square span {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      text-align: center;
+      cursor: pointer;
+      background-color: #fff;
+    }
+
+    /* 左右焦点 */
+    #focus {
+      display: none;
+      /* position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -50px; */
+      /* display: flex;
+      justify-content: space-between; */
+      /* display: none; */
+
+    }
+
+
+
+    #focus span {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -50px;
+      width: 40px;
+      height: 40px;
+      background-color: #000;
+      font-size: 30px;
+      color: #fff;
+      line-height: 40px;
+      border: 1px solid #fff;
+      opacity: .3;
+      cursor: pointer;
+      text-align: center;
+
+    }
+
+    #focus #right {
+      position: absolute;
+      right: 0;
+      /* top: 50%; */
+      left: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="box">
+    <div class="inner">
+      <ul>
+        <li>
+          <a href="#"><img src="images/1.jpg" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/2.jpg" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/3.jpg" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/4.jpg" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/5.jpg" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/6.jpg" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/1.jpg" alt="" /></a>
+        </li>
+      </ul>
+      <div class="square">
+        <span class="current">1</span> <span>2</span> <span>3</span>
+        <span>4</span> <span>5</span> <span>6</span>
+      </div>
+      <div id="focus"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+    </div>
+  </div>
+  <script src="../../../douxu.js"></script>
+  <script>
+    //获取最外层id
+    var box = my$("box");
+    //获取相框
+    var inner = box.children[0];
+    //获取相框宽度
+    var imgWidth = inner.offsetWidth;
+    //获取边框下的ul
+    var ulObj = inner.children[0];
+    //获取左右焦点
+    var focus = inner.children[2];
+    //获取所有的span标签
+    var spanObjs = inner.children[1].children;
+    //使用排他功能，让鼠标进入span时变色
+    //遍历span标签
+    for (var i = 0; i < spanObjs.length; i++) {
+      spanObjs[i].setAttribute("index", i);
+      //注册鼠标进入事件
+      spanObjs[i].onmouseover = function () {
+        //遍历鼠标进入时的span
+        for (var j = 0; j < spanObjs.length; j++) {
+          //先移除所有span的类样式
+          spanObjs[j].removeAttribute("class");
+          //当前鼠标进时的class为current;
+          this.className = "current";
+          //鼠标进入获取span标签当前索引值
+          index = this.getAttribute("index");
+          //ul是整个图片列表，整个移动，移动的距离为当前索引值乘以相框宽度即图片宽度
+          animate(ulObj, -index * imgWidth);
+        }
+      };
+    }
+
+    //左右焦点
+    // 鼠标进入box焦点显示
+    box.onmouseover = function () {
+      focus.style.display = "block";
+    }
+    // 鼠标进入box焦点消失
+    box.onmouseout = function () {
+      focus.style.display = "";
+    }
+    //点击右边按钮
+    var index = 0;
+    my$("right").onclick = function () {
+      if (index < spanObjs.length - 1) {
+        index++;
+        animate(ulObj, -index * imgWidth);
+      }
+    };
+    //点击左边按钮
+    my$("left").onclick = function () {
+      if (index > 0) {
+        index--;
+        animate(ulObj, -index * imgWidth);
+      }
+    };
+
+    //无缝连接
+    var current = 0;
+
+    function f1() {
+      current -= 10;
+
+      if (current < -4380) {
+        ulObj.style.left = 0 + "px";
+        current = 0;
+      } else {
+        ulObj.style.left = current + "px";
+      }
+    }
+    var timeIde = setInterval(f1, 20);
+    box.addEventListener("mouseover", function () {
+      clearInterval(timeIde);
+    }, false);
+    box.addEventListener("mouseout", function () {
+      timeIde = setInterval(f1, 20);
+    }, false)
+  </script>
+</body>
+
+</html>

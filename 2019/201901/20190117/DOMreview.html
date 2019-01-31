@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dv{
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <input type="button" value="产生" id="btn">
+    <input type="button" value="不产生第一个" id="btn2"> -->
+    <div id="btn1">
+        <input type="button" value="闪一闪" id="btn"> <input type="button" value="停止" id="btn2">
+    </div>
+    <!-- <div id="dv">
+        <img src="http://www.ixiupet.com/uploads/allimg/150317/2-15031H22T0.jpg" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY7__5fLM90q2HfD5ntan1AIc3uiCAKc0X4GdsNHeE1jJTimCd"
+            alt="">
+    </div> -->
+
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+
+        // function f1() {
+        //     console.log("产生第一个");
+        // }
+
+        // function f2() {
+        //     console.log("产生第二个");
+        // }
+        // my$("btn1").addEventListener("click", f1, false);
+        // my$("btn1").addEventListener("click", f2, false);
+        // my$("btn2").onclick = function () {
+        //     my$("btn1").removeEventListener("click", f1, false);
+        // }
+
+        // my$("btn1").onclick = function () {
+        //     console.log("产生")
+        // }
+        // my$("btn2").onclick = function () {
+        //     my$("btn1").onclick = null
+        // }
+        // my$("btn1").onclick = function () {
+        //     timmID = setInterval(function () {
+        //         var x = Math.random() * 100 + 1;
+        //         var y = Math.random() * 100 + 1;
+        //         my$("dv").style.left = x + "px";
+        //         my$("dv").style.top = y + "px";
+        //     }, 100);
+        // };
+        // my$("btn2").onclick = function () {
+        //     clearInterval(timmID);
+        // }
+
+
+
+        //用定时器设置星星跳动
+        var dvobj = document.createElement("div");
+        my$("btn1").appendChild(dvobj);
+        dvobj.id = "dv";
+        dvobj.style.width = "600px";
+        dvobj.style.height = "600px";
+        dvobj.style.border = "1px solid blue";
+        dvobj.style.backgroundColor = "black"
+        dvobj.style.position = "absolute";
+        var xingXing = document.createElement("span");
+        dvobj.appendChild(xingXing);
+        xingXing.innerText = "☆";
+        xingXing.style.color = "white";
+        xingXing.style.position = "absolute"
+        my$("btn").onclick = function () {
+            timeId = setInterval(function () {
+                var x = Math.random() * 600 + 1;
+                var y = Math.random() * 600 + 1;
+                my$("dv").firstElementChild.style.left = x + "px";
+                my$("dv").firstElementChild.style.top = y + "px";
+            }, 100)
+        }
+        my$("btn2").onclick = function () {
+            clearInterval(timeId)
+        }
+    </script>
+</body>
+
+</html>

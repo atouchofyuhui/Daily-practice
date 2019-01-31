@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box ul {
+            width: 3650px;
+            display: flex;
+            position: absolute;
+            /* 脱离文档流 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <ul>
+            <li><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/1.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script src="../../douxu.js"></script>
+    <script>
+        var box = my$("box");
+        var ulobj = box.children[0];
+        var liobjs = ulobj.children;
+        var current = 0;
+
+        function f1() {
+            current -= 10;
+            if (current < -2920) {
+                ulobj.style.left = 0 + "px";
+                current = 0;
+            } else {
+                ulobj.style.left = current + "px";
+            }
+        }
+        var timeId = setInterval(f1, 20)
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 一：直接在html标签内加写js -->
+    <input type="button" value="关闭窗口" onclick="window.close()">
+
+    <input type="button" value="关闭窗口" id="close">
+    <!-- 二：在html中写script -->
+    <script>
+        window.onload = function () {
+            document.getElementById("close").onclick = function () {
+                window.close();
+            };
+        }
+    </script>
+
+    <!-- 三：引入外部js文件 -->
+    <input type="button" value="关闭窗口" id="closeWindow">
+    <script src="index.js"></script>
+</body>
+
+</html>

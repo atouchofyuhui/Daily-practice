@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <style>
+        table {
+            margin: 100px auto;
+            text-align: center;
+            width: 200px;
+            height: 100px;
+        }
+
+        thead {
+            background-color: rgb(28, 129, 245);
+        }
+    </style> -->
+    <!-- <style>
+        div {
+            width: 300px;
+            height: 200px;
+            border: 1px solid#ccc;
+        }
+
+        ul,
+        li {
+            list-style: none;
+            cursor: pointer;
+        }
+    </style> -->
+</head>
+
+<body>
+    <!-- <table border="1" cellpadding=0 cellspacing=0>
+        <thead>
+            <tr>
+                <td><input type="checkbox" name="" id="j_ckall"></td>
+                <td>商品</td>
+                <td>价格</td>
+            </tr>
+        </thead>
+        <tbody id="j_tb">
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>张译</td>
+                <td>无价</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>刘烨</td>
+                <td>无价</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>大碗面</td>
+                <td>赠品</td>
+            </tr>
+        </tbody>
+    </table> -->
+    <!-- <script>
+        //获取thead复选框的ID
+        var ckall = document.getElementById("j_ckall");
+        //获取tbody的ID
+        var tb = document.getElementById("j_tb");
+        //获取tbody中所有复选框
+        var inputs = tb.getElementsByTagName("input");
+        //给thead复选框注册点击事件并添加事件函数
+        ckall.onclick = function () {
+            //遍历tbody中所有复选框
+            for (var i = 0; i < inputs.length; i++) {
+                //将thead复选框check属性的checked属性值赋值给每一个tbody中所有复选框
+                inputs[i].checked = ckall.checked;
+            }
+        }
+        //先遍历tbody中所有复选框
+        for (var j = 0; j < inputs.length; j++) {
+            //tbody中所有复选框注册点击事件并添加事件函数
+            inputs[j].onclick = function () {
+                //假设默认值是true，勾选状态
+                var flag = true;
+                //再次遍历tbody中所有复选框
+                for (var k = 0; k < inputs.length; k++) {
+                    //判断tbody中的复选框是否都被选中了
+                    if (!inputs[k].checked) {
+                        ////如果tbody中的复选框有一个没有被选中则判断成立，此时将false的值赋值给flag
+                        flag = false;
+                        //跳出循环
+                        break;
+                    }
+                }
+                //如果tbody中的复选框有一个没选中，则flag的值变成flase，跳出循环，赋值给thead的复选框，thead的复选框不被勾选；
+                //如果tbody中的复选框都被选中，则if判断语句的条件不成立，flag的值为默认值true，thead的复选框被勾选
+                ckall.checked = flag;
+            }
+        }
+    </script> -->
+    <!-- <input type="button" value="显示列表" id="btn">
+    <div id="dv">
+
+    </div>
+    <script>
+        document.getElementById("btn").onclick = function () {
+            //动态创建列表  字符串的拼接
+            var names = ["1", "2", "3", "4", "5"];
+            var str = "<ul>"
+            for (var i = 0; i < names.length; i++) {
+                //
+                str += "<li>" + names[i] + "</li>"
+            }
+            str += "</ul>"
+            document.getElementById("dv").innerHTML = str;
+        }
+    </script> -->
+
+    <!-- <input type="button" value="按钮" id="btn"> -->
+    <!-- <div id="dv">
+        <span>fdgfdgfd</span>
+        <p>ergegbfdaqr</p>
+        <a href="">fhgfjdjst</a>
+        <ul id="uu">
+            <li>sdgfdgfdg</li>
+            <li>sdgfdgfdg</li>
+            <p>sdfsd</p>
+            <li>sdgfdgfdg</li>
+            <li>sdgfdgfdg</li>
+        </ul>
+        <p>sdf</p>
+    </div> -->
+    <script>
+        // var my$ = document.getElementById("uu");
+        // console.log(my$.parentNode);
+        // console.log(my$.parentElement);
+        // var btn = document.getElementById("btn");
+
+        //通过节点操作DOM元素var nodes = document.getElementById("dv").childNodes;
+        // for (var i = 0; i < nodes.length; i++) {
+        //     if (nodes[i].nodeType == 1 && nodes[i].nodeName == "P") {
+        //         nodes[i].style.backgroundColor = "red";
+        //     }
+        // }
+        // document.getElementById("btn").onclick = function () {
+        //     document.write("<p>页面原来的内容消失了</p>");
+        // }
+
+
+        // document.getElementById("btn").onclick = function () {
+        //     var pobj = document.createElement("p");
+        //     pobj.innerHTML = "这是一个P标签";
+        //     document.getElementById("dv").appendChild(pobj)
+        // }
+    </script>
+
+    <!-- //动态创建列表 -->
+    <input type="button" value="按钮" id="btn">
+    <div id="dv"></div>
+    <script>
+        var names = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        document.getElementById("btn").onclick = function () {
+            var ulobj = document.createElement("ul");
+            document.getElementById("dv").appendChild(ulobj);
+            for (var i = 0; i < names.length; i++) {
+                var liobj = document.createElement("li");
+                liobj.innerHTML = names[i]
+                ulobj.appendChild(liobj);
+                liobj.onmouseover = mouseoverHandle;
+                liobj.onmouseout = mouseoutHandle;
+            }
+        }
+
+        function mouseoverHandle() {
+            this.style.backgroundColor = "red"
+        }
+
+        function mouseoutHandle() {
+            this.style.backgroundColor = ""
+        }
+    </script>
+
+</body>
+
+</html>

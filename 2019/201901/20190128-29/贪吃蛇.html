@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .map {
+            width: 800px;
+            height: 600px;
+            position: relative;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map"></div>
+    <script>
+        //自调用函数    产生随机数对象
+        (function () {
+            var elements = []; //用来存放每个小方块食物
+            //产生随机数的自定义构造函数
+            function Random() {};
+            //在原型中添加方法
+            Random.prototype.getRandom = function (min, max) { //传入参数范围
+                return Math.floor(Math.random() * (max - min) + min);
+            }
+            //局部对象暴露给顶级对象window;
+            window.Random = new Random();
+        })();
+        (function () {
+            //选择起的方式获取元素对象，贪吃蛇的游动范围
+            var map = document.querySelector(".map")
+            //食物的构造函数
+            function Food(width, height, color) {
+                this.width = width || 20; //随机产生的宽，默认为20
+                this.height = height || 20; //随机产生的高，默认为20
+                this.color = color; //
+                this.top = 0; //随机产生的纵坐标
+                this.left = 0; //随机产生的横坐标
+
+
+
+                this.element = document.createElement("div"); //创建一个小方块元素
+            }
+            //设置小方块的样式
+            Food.prototype.init = function (map) {
+                //设置小方块的样式
+                var div = this.element;
+                div.style.position = "absolute"; //脱离文档流
+                div.style.width = this.width + "px";
+                div.style.height = this.height + "px";
+                div.style.backgroundColor = this.color;
+                //追加小方块
+                map.appendChild(div);
+                this.render(map);
+            }
+            //产生随机位置
+            Food.prototype.render = function (map) {
+                var x = Random.getRandom(0, map.offsetWidth / this.width) * this.width;
+                var y = Random.getRandom(0, map.offsetHeight / this.height) * this.height;
+                // this.x = x;
+                // this.y = y;
+                // var div = this.element;
+                // div.style.left = this.x + "px"
+                // div.style.top = this.y + "px"
+
+                var div = this.element;
+                div.style.left = x + "px"
+                div.style.top = y + "px"
+
+
+            }
+
+            var fd = new Food(20, 20, "green");
+            fd.init(map);
+
+
+        })();
+    </script>
+</body>
+
+</html>

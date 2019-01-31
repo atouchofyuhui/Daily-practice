@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>冒泡排序</title>
+
+</head>
+
+<body>
+    <!-- <script>
+        var arr = [5, 4, 6, 87, 84];
+        //一共需要比较的轮数
+        for (var i = 0; i < arr.length - 1; i++) {
+            //每轮比较的次数
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                //比较数组的第一个数和他的后一个数
+                if (arr[j] > arr[j + 1]) {
+                    //如果这个数比他后面的数大，则调换位置
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+    </script> -->
+    <!-- <script>
+        var arr = [45, 78, 785, 11, 24, 6565];
+        //循环控制比较的轮数
+        for (var i = 0; i < arr.length - 1; i++) {
+            //循环控制每轮比较的次数    为什么减i再减一，因为i是从零开始不是从一开始的，所以要再减一
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    //两个数比较后调换位置
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+    </script> -->
+
+    <script>
+        var arr = [5, 32, 877, 1, 2, 3, 45, 878];
+        //循环控制比较的轮数
+        for (var i = 0; i < arr.length - 1; i++) {
+            //循环控制每轮比较的次数，这时候才是两个数开始比较大小了，因为i从0开始，
+            for (var j = 0; j < arr.length - i - 1; j++) {
+                //比较两个数的大小，然后排序
+                if (arr[j] > arr[j + 1]) {
+                    //位置互换
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+    </script>
+</body>
+
+</html>

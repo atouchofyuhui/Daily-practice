@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 300px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            margin: 100px auto;
+            background: rgba(0, 0, 0, .2);
+        }
+
+        .tab-menu {
+            display: flex;
+            margin-left: 20px;
+            justify-content: space-around
+        }
+
+        .tab-menu .cls {
+            color: aquamarine;
+        }
+
+        .tab-menu>li {
+            cursor: pointer;
+        }
+
+        .tab-list {
+            margin: 20px auto;
+            display: flex;
+        }
+
+        .tab-list>span {
+            display: none;
+        }
+
+        .tab-list .box1 {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <ul class="tab-menu">
+            <li class="cls">通知公告</li>
+            <li>招标信息</li>
+        </ul>
+        <ul class="tab-list">
+            <span class="box1">
+                <ul>
+                    <li>通知公告</li>
+                    <li>通知公告</li>
+                    <li>通知公告</li>
+                </ul>
+            </span>
+            <span>
+                <ul>
+                    <li>招标信息</li>
+                    <li>招标信息</li>
+                    <li>招标信息</li>
+                </ul>
+            </span>
+        </ul>
+    </div>
+    <script>
+        //获取最外层div 
+        var boxs = document.getElementById("box");
+        //获取第一个ul
+        var menus = boxs.getElementsByTagName("ul")[0];
+        //获取第二个ul
+        var lists = boxs.getElementsByTagName("ul")[1];
+        //获取第一个ul里所有的li
+        var lis1 = menus.getElementsByTagName("li");
+        //获取第二个ul里的li
+        var lis2 = lists.getElementsByTagName("span");
+
+        //给第一个ul里的li注册鼠标进入事件
+        for (var i = 0; i < lis1.length; i++) {
+            //索引
+            lis1[i].setAttribute("index", i);
+            lis1[i].onmouseenter = function () {
+                //先隐藏第一个ul中所有的li
+                for (var j = 0; j < lis1.length; j++) {
+                    lis1[j].removeAttribute("class");
+                }
+                this.className = "cls";
+                //得到当前的索引值
+                var num = this.getAttribute("index");
+                for (var k = 0; k < lis2.length; k++) {
+                    lis2[k].removeAttribute("class");
+                }
+                lis2[num].className = "box1";
+            }
+        }
+    </script>
+</body>
+
+</html>

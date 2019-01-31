@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dv {
+            width: 200px;
+            height: 150px;
+            background-color: blue;
+        }
+
+        #im {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+    </script>
+    <!-- 协议按钮禁用 -->
+    <!-- <textarea name="texa" id="" cols="30" rows="10">
+       协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议
+    </textarea>
+    <input type="button" value="请仔细阅读协议(5)" id="btn" disabled="disabled">
+    <script>
+       
+        var time = 5;
+
+        setInterval(function () {
+            if (time > 1) {
+                time--;
+                my$("btn").value = "请仔细阅读协议(" + time + ")"
+            } else {
+                my$("btn").value = "同意";
+                my$("btn").disabled = false;
+            }
+        }, 1000);
+    </script> -->
+
+    <!-- //定时器设置颜色渐变 -->
+    <!-- <div id="dv">
+
+    </div>
+    <input type="button" value="移动到400px" id="btn1">
+    <input type="button" value="移动到800px" id="btn2"> -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHS4W1MFiNXns6IpqWvuFLTtabZTtXKXELLVx_XySCcEc7CJT"
+        alt="" id="im">
+
+    <script>
+        function my$(id) {
+            return document.getElementById(id)
+        }
+        // var opacity = 10;
+        // var width = 200;
+        // my$("btn").onclick = function () {
+        //     var timeId = setInterval(function () {
+        //         opacity--;
+        //         width += 10;
+        //         // my$("dv").style.opacity = opacity / 10;
+        //         my$("dv").style.width = width + "px";
+        //         if (width > 790) {
+        //             clearInterval(timeId)
+        //         };
+
+        //     }, 50)
+        // }
+        // var width = 200;
+        // my$("btn1").onclick = function () {
+        //     var timeId = setInterval(function () {
+        //         width += 10;
+        //         my$("dv").style.width = width + "px";
+        //         if (width > 390) {
+        //             clearInterval(timeId);
+        //         }
+        //     }, 50)
+        // }
+        // // var width = 400;
+
+        // my$("btn2").onclick = function () {
+        //     var timeId = setInterval(function () {
+
+        //         if (width < 800 && width >= 400) {
+        //             width += 10;
+        //             my$("dv").style.width = width + "px";
+        //         } else if (width > 790) {
+        //             clearInterval(timeId);
+        //         }
+        //     }, 50)
+        // }
+        document.onmousemove = function (e) {
+            my$("im").style.left = e.clientX + "px";
+            my$("im").style.top = e.clientY + "px";
+        };
+    </script>
+</body>
+
+</html>

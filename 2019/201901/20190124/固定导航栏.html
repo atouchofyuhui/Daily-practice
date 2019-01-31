@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .top {
+            width: 1423px;
+            height: 168px;
+            margin: 0 auto;
+            /* background-image: url(images/top.png); */
+        }
+
+        .nav {
+            width: 1423px;
+            height: 83px;
+            margin: 0 auto;
+            /* background-image: url(images/nav.png); */
+
+        }
+
+        .fixd {
+            position: fixed;
+            left: 240px;
+            top: 0;
+        }
+
+        .main {
+            width: 1001px;
+            height: 2734px;
+            margin: 0 auto;
+            /* margin-top: 10px; */
+            /* background-image: url(images/main.png); */
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top" id="topPart">
+        <img src="images/top.png" alt="">
+    </header>
+    <nav class="nav" id="navBar">
+        <img src="images/nav.png" alt="">
+
+    </nav>
+    <section class="main" id="mainPart">
+        <img src="images/main.png" alt="">
+
+    </section>
+
+    <script>
+        function my$(id) {
+            return document.getElementById(id)
+        };
+
+        function getScroll() {
+            return {
+                top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+                left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+            };
+        }
+        //滚动事件
+        window.onscroll = function () {
+            if (getScroll().top >= my$("topPart").offsetHeight) {
+                my$("navBar").className = "nav fixd";
+                //因为当fixd脱标的时候，mainPart会占用fixed的位置，所以会跳上去，没有滑动的效果，所以加上marginTop为导航栏的高度，平滑上移
+                my$("mainPart").style.marginTop = my$("navBar").offsetHeight + "px";
+            } else {
+                my$("navBar").className = "nav";
+                my$("mainPart").style.marginTop = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

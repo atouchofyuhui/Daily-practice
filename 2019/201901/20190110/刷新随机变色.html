@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dv {
+            width: 300px;
+            height: 150px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dv"></div>
+    <script>
+        function myMath() {
+            var arr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+            var str = "#";
+            for (var i = 0; i < 6; i++) {
+                var num = parseInt(Math.random() * 16);
+                str += arr[num];
+            }
+            return str;
+        }
+        console.log(myMath());
+        window.onload = function () {
+            document.getElementById("dv").style.backgroundColor = myMath();
+        }
+    </script>
+</body>
+
+</html>

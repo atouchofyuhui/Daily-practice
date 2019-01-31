@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid#ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dv"></div>
+    <script src="../../douxu.js"></script>
+    <script>
+        //console.log(window.getComputedStyle(my$("dv"), null).left);
+        // console.log(element.currentStyle.left)
+
+        // if (window.getComputedStyle) {
+        //     window.getComputedStyle(element, null)["left"];
+        // } else {
+        //     window.currentStyle["left"];
+        // }
+        //获取元素的属性值
+        function getStyle(element, attr) {
+            return window.getComputedStyle ? window.getComputedStyle(element, null)[attr] : element.currentStyle[attr];
+        }
+        //  console.log(getStyle(my$("dv"), "height"));
+    </script>
+</body>
+
+</html>

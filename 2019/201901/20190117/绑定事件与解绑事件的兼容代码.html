@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn">
+    <script>
+        //绑定事件
+        //定义构造函数addEventListener创建对象    element---绑定的元素对应的id,type----事件的类型，fn-----绑定的事件处理函数的名字
+        function addEventListener(element, type, fn) {
+            //判断如果火狐，谷歌支持，IE8不支持，则进入执行addEventListener方法
+            if (element.addEventListener) {
+                element.addEventListener(type, fn, false)
+                //如果火狐谷歌不支持，IE8支持，则进入执行attachEvent方法
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, fn)
+                //如果这三个浏览器都不支持，则使用普通方法绑定事件
+            } else {
+                //普通绑定事件的方法 
+                element["on" + type] = fn;
+            }
+        }
+
+
+        //解绑事件
+        //定义构造函数addEventListener创建对象    element---绑定的元素对应的id,type----事件的类型，fn-----绑定的事件处理函数的名字
+        function removeEventListener(element, type, fn) {
+            //如果谷歌火狐支持，IE8不支持，则进入
+            if (element.removeEventListener) {
+                //使用removeEventListener方式解绑事件
+                element.removeEventListener(type, fn, false)
+                //如果谷歌火狐不支持，IE8支持，则进入
+            } else if (element.detachEvent) {
+                //使用detachEvent解绑事件
+                element.detachEvent("on" + type, fn)
+            } else {
+                //如果谷歌火狐IE8都不支持，则用普通方式解绑事件
+                element["on" + type] = null;
+            }
+        }
+
+        // function my$(id) {
+        //     return document.getElementById(id)
+        // }
+        // my$("btn").addEventListener("click", function () {
+        //     console.log(1)
+        // }, false);
+        // my$("btn").addEventListener("click", function () {
+        //     console.log(2)
+        // }, false);
+        // my$("btn").addEventListener("click", function () {
+        //     console.log(3)
+        // }, false)
+    </script>
+</body>
+
+</html>

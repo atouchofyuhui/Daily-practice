@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //函数作为返回值使用
+        // function f1() {
+        //     console.log("函数被调用了");
+        //     return function () {
+        //         console.log("函数作为返回值使用");
+        //     }
+        // }
+        // f1();
+        // var f2 = f1();
+        // f2();
+
+
+        // function zhiShu(num) {
+        //     for (var i = 2; i < num; i++) {
+        //         if (num % i == 0) {
+        //             return false;
+        //         }
+        //         return true;
+        //     }
+        //     var fanHuiZhi = zhiShu();
+        //     if (fanHuiZhi) {
+        //         console.log("这个数是一个质数")
+        //     } else {
+        //         console.log("这个数不是一个质数")
+        //     }
+        // }
+        // zhiShu(5) //   parseInt(prompt("请输入一个数"))
+
+
+        var num = parseInt(prompt("输入一个数"));
+
+        function f1(num) {
+            for (var i = 2; i < num; i++) {
+                if (num % i == 0) {
+                    return console.log("不是质数");
+                }
+            }
+            return console.log("是质数");
+        }
+        console.log(f1(num))
+    </script>
+</body>
+
+</html>
